@@ -1,7 +1,7 @@
 Native-Windows-Okta-OIDC-OAuth
 ==============================
 
-Okta Sign-in integrated with MFA (Okta Verify/ Google Authenticator) 
+Okta Sign-in integrated with MFA (Okta Verify/ Google Authenticator) using Authorization Code Grant w/PKCE flow
 
 ![alt text](https://user-images.githubusercontent.com/27521456/31230567-565e4546-a9dc-11e7-8a44-584416f76af2.png)
 
