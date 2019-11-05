@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OAuthApp"
         mc:Ignorable="d"
-        Title="OKta OAuth 2.0" Height="629.464" Width="686.607"
+        Title="Okta OAuth 2.0" Height="629.464" Width="686.607"
         >
 
     <Window.Resources>
