@@ -1,4 +1,4 @@
-﻿
+
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,6 @@ namespace OAuthApp
     {
         // client configuration
         string clientID = ConfigurationManager.AppSettings["clientId"];
-        string clientSecret = ConfigurationManager.AppSettings["clientSecret"];
         string tenantUrl = ConfigurationManager.AppSettings["tenantUrl"];
         string redirectURI = ConfigurationManager.AppSettings["redirectURI"];  
 
@@ -46,6 +45,8 @@ namespace OAuthApp
                 "&response_type=code" +
                 "&response_mode=query" +
                 "&nonce=" + "nonceStatic" +
+                "&code_challenge=" + code_challenge +
+                "&code_challenge_method=" + "S256" +
                 "&redirect_uri=" + redirectURI +
                 "&state=" + state +
                 "&sessionToken=" + "session_no_needed";
@@ -110,12 +111,11 @@ namespace OAuthApp
 
             // builds the /oauth2/v1/token request
             string tokenRequestURI = tenantUrl + "/oauth2/v1/token";
-            string tokenRequestBody = string.Format("code={0}&redirect_uri={1}&client_id={2}&code_verifier={3}&client_secret={4}&scope=&grant_type=authorization_code",
+            string tokenRequestBody = string.Format("code={0}&redirect_uri={1}&client_id={2}&code_verifier={3}&scope=&grant_type=authorization_code",
                 code,
                 System.Uri.EscapeDataString(redirectURI),
                 clientID,
-                code_verifier,
-                clientSecret
+                code_verifier
                 );
             
             //Sends the request
